@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:good_places/screens/form/components/image_input.dart';
 
 class PlaceForm extends StatelessWidget {
   const PlaceForm({super.key});
@@ -9,8 +10,41 @@ class PlaceForm extends StatelessWidget {
       appBar: AppBar(
         title: Text('Adicionar Local'),
       ),
-      body: SizedBox(
-        child: Text('adicionar local'),
+      body: SingleChildScrollView(
+        child: Padding(
+          padding: const EdgeInsets.all(10),
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.stretch,
+            children: [
+              Expanded(
+                child: Column(
+                  children: [
+                    TextField(
+                      decoration: InputDecoration(
+                        labelText: 'Titulo',
+                      ),
+                    ),
+                    SizedBox(
+                      height: 10,
+                    ),
+                    ImageInput(),
+                  ],
+                ),
+              ),
+              ElevatedButton.icon(
+                onPressed: () {},
+                label: Text('Adicionar', style: TextStyle(color: Colors.black)),
+                icon: Icon(Icons.add, color: Colors.black),
+                style: ElevatedButton.styleFrom(
+                  shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.zero,
+                  ),
+                  backgroundColor: ColorScheme.of(context).onSecondary,
+                ),
+              ),
+            ],
+          ),
+        ),
       ),
     );
   }
